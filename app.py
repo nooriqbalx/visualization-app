@@ -27,10 +27,11 @@ fig2 = px.bar(top_banks_per_region, x="Transaction To", y="Credit", color="Regio
 st.plotly_chart(fig2, use_container_width=True)
 
 st.subheader("Geographic Heatmap of Transactions")
-transaction_intensity = filtered_df.groupby("Region")["Credit", "Debit"].sum().reset_index()
+transaction_intensity = filtered_df.groupby("Region")[["Credit", "Debit"]].sum().reset_index()
 fig3 = px.density_heatmap(transaction_intensity, x="Region", y="Credit", z="Debit",
                           title="Transaction Intensity by Region", color_continuous_scale="Viridis")
 st.plotly_chart(fig3, use_container_width=True)
+
 
 st.subheader("Anomalies in Transactions")
 from scipy.stats import zscore
