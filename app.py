@@ -8,6 +8,12 @@ df = pd.read_excel("Enhanced_Dummy_HBL_Data.xlsx")
 st.set_page_config(page_title="HBL Transactions Dashboard", layout="wide")
 st.title("HBL Transactions Dashboard")
 
+st.write("""
+### How to Use:
+- Use the filters in the sidebar to dynamically explore the dataset.
+- Each chart updates automatically based on the selected filters.
+""")
+
 st.sidebar.header("Filters")
 regions = st.sidebar.multiselect("Select Region(s)", options=df["Region"].unique(), default=df["Region"].unique())
 account_types = st.sidebar.multiselect("Select Account Type(s)", options=df["Account Type"].unique(), default=df["Account Type"].unique())
@@ -56,8 +62,3 @@ if "Customer Type Description" in filtered_df.columns:
 else:
     st.warning("Customer Type Description column not available in the dataset.")
 
-st.write("""
-### How to Use:
-- Use the filters in the sidebar to dynamically explore the dataset.
-- Each chart updates automatically based on the selected filters.
-""")
