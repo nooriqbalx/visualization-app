@@ -75,7 +75,7 @@ plt.title("Correlation Matrix of Numeric Variables")
 st.pyplot(plt) 
 
 st.subheader("Transaction Amount Distribution: Credit vs Debit")
-sns.set(style="whitegrid")
+
 plt.figure(figsize=(14, 6), facecolor='black')
 
 plt.subplot(1, 2, 1) 
