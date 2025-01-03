@@ -63,7 +63,8 @@ if "Customer Type Description" in filtered_df.columns:
     st.plotly_chart(fig7, use_container_width=True)
 else:
     st.warning("Customer Type Description column not available in the dataset.")
-  
+
+sns.set(style="darkgrid", palette="deep")
 st.subheader("Correlation Analysis")
 numeric_cols = df.select_dtypes(include=['float64', 'int64'])
 correlation_matrix = numeric_cols.corr()
@@ -75,7 +76,7 @@ st.pyplot(plt)
 
 st.subheader("Transaction Amount Distribution: Credit vs Debit")
 sns.set(style="whitegrid")
-plt.figure(figsize=(14, 6))
+plt.figure(figsize=(14, 6), facecolor='black')
 
 plt.subplot(1, 2, 1) 
 sns.histplot(filtered_df['Credit'], kde=True, color='blue', bins=30)
